@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#103c2b">
+<title>Sir John GH | Data Bundles</title>
+<style>
+:root{--green:#103c2b;--lime:#b9f36b;--bg:#f5f7f5;--ink:#17221b;--muted:#647067;--line:#e0e7e1;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+header{background:var(--green);color:white;padding:18px 5vw 30px}
+nav{display:flex;justify-content:space-between;align-items:center;gap:12px;max-width:1100px;margin:auto}
+.brand{font-weight:850;font-size:1.2rem;letter-spacing:-.4px}.brand span{color:var(--lime)}
+.pill{border:1px solid #ffffff55;border-radius:999px;padding:8px 12px;font-size:.82rem;color:white;text-decoration:none}
+.hero{max-width:1100px;margin:38px auto 0;display:grid;grid-template-columns:1.5fr 1fr;gap:24px;align-items:center}
+.eyebrow{color:var(--lime);font-size:.8rem;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+h1{font-size:clamp(2.1rem,5vw,4rem);line-height:1.04;letter-spacing:-2px;margin:12px 0}
+.hero p{color:#d5e5da;max-width:520px;line-height:1.65}
+.hero-card{background:#ffffff12;border:1px solid #ffffff25;border-radius:22px;padding:22px}
+.hero-card .big{font-size:2.6rem;font-weight:850;letter-spacing:-1px}.hero-card small{color:#d5e5da}
+main{max-width:1100px;margin:26px auto;padding:0 5vw 50px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:12px;flex-wrap:wrap;margin:26px 0 16px}
+h2{margin:0;font-size:1.45rem;letter-spacing:-.5px}.sub{color:var(--muted);font-size:.93rem;margin-top:5px}
+.layout{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;align-items:start}
+.panel{background:white;border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 8px 25px #193a2510}
+label{display:block;font-weight:700;font-size:.9rem;margin:14px 0 7px}
+select,input{width:100%;padding:13px 12px;border:1px solid #ccd7ce;border-radius:11px;background:white;font:inherit;color:var(--ink)}
+.bundles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px}
+.bundle{border:1px solid var(--line);border-radius:13px;padding:14px;background:#fff;cursor:pointer;text-align:left;color:var(--ink)}
+.bundle.active{border:2px solid #247346;background:#f0faef;padding:13px}
+.bundle strong{display:block;font-size:1.15rem}.bundle span{display:block;color:var(--muted);font-size:.88rem;margin-top:5px}
+.price{font-size:1.7rem;font-weight:850;letter-spacing:-.7px}
+.btn{border:0;border-radius:12px;padding:14px 16px;font:inherit;font-weight:800;cursor:pointer;text-align:center;text-decoration:none;display:block;width:100%}
+.btn-primary{background:var(--green);color:white;margin-top:15px}.btn-secondary{background:#edf3ed;color:var(--green);margin-top:9px}
+.note{font-size:.8rem;color:var(--muted);line-height:1.55}.summary{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid var(--line)}
+.chip{display:inline-block;background:#eff8e9;color:#245d35;padding:5px 9px;border-radius:999px;font-size:.78rem;font-weight:800}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px}.step{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px}.step b{display:block;margin-bottom:6px}.step p{font-size:.86rem;color:var(--muted);line-height:1.5;margin:0}
+footer{background:#eaf0eb;padding:24px 5vw;color:#536057;font-size:.85rem}.foot{max-width:1100px;margin:auto;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.toast{display:none;margin-top:12px;padding:12px;border-radius:10px;background:#fff5d9;color:#674d0b;font-size:.86rem}
+@media(max-width:760px){.hero,.layout{grid-template-columns:1fr}.hero{margin-top:26px}.hero-card{max-width:400px}.steps{grid-template-columns:1fr}.bundles{grid-template-columns:repeat(2,minmax(0,1fr))}main{padding-left:4vw;padding-right:4vw}}
+</style>
+</head>
+<body>
+<header>
+<nav><div class="brand">⚡ SIR JOHN <span>GH</span></div><a class="pill" href="#shop">Buy data bundles</a></nav>
+<div class="hero">
+ <div><div class="eyebrow">Fast • Simple • Ghana</div><h1>Your data.<br>Delivered with ease.</h1><p>Choose your network, select a bundle and place your order with Sir John GH.</p></div>
+ <div class="hero-card"><div class="chip">WELCOME TO OUR SHOP</div><p class="big">Stay connected.</p><small>MTN · Telecel · AT</small></div>
+</div>
+</header>
+<main>
+ <div class="section-head"><div><h2 id="shop">Buy a data bundle</h2><div class="sub">Select your network and bundle below.</div></div><span class="chip">Ghana cedis (GH₵)</span></div>
+ <div class="layout">
+  <section class="panel">
+   <label for="network">1. Choose network</label>
+   <select id="network"><option>MTN</option><option>Telecel</option><option>AT</option></select>
+   <label>2. Choose bundle</label>
+   <div class="bundles" id="bundles"></div>
+   <label for="recipient">3. Number to receive data</label>
+   <input id="recipient" inputmode="tel" autocomplete="tel" placeholder="e.g. 0241234567" maxlength="15">
+   <label for="payment">4. Payment preference</label>
+   <select id="payment"><option>Mobile Money</option><option>Wallet balance (coming soon)</option></select>
+   <button class="btn btn-primary" id="order">Continue with WhatsApp</button>
+   <div class="toast" id="toast"></div>
+   <p class="note">This is the first website version. The order button opens WhatsApp to contact the shop; it does not charge customers or automatically deliver data yet.</p>
+  </section>
+  <aside class="panel">
+   <h2>Order summary</h2><div class="sub">Review your selection</div>
+   <div class="summary"><span>Network</span><b id="sumNetwork">MTN</b></div>
+   <div class="summary"><span>Bundle</span><b id="sumBundle">1GB</b></div>
+   <div class="summary"><span>Price</span><b class="price" id="sumPrice">GH₵4.50</b></div>
+   <div class="summary"><span>Shop contact</span><b>0547720878</b></div>
+   <a class="btn btn-secondary" href="https://wa.me/233547720878">Chat with Sir John GH</a>
+   <p class="note">Prices shown are proposed prices. Confirm supplier costs and network availability before accepting live orders.</p>
+  </aside>
+ </div>
+ <div class="section-head"><div><h2>How it works</h2><div class="sub">A simple buying experience for your customers.</div></div></div>
+ <div class="steps">
+  <div class="step"><b>01 · Choose</b><p>Select MTN, Telecel or AT, then choose your bundle size.</p></div>
+  <div class="step"><b>02 · Pay</b><p>Payment gateway integration will be added after merchant setup.</p></div>
+  <div class="step"><b>03 · Receive</b><p>Automatic delivery will be connected to a verified data supplier API.</p></div>
+ </div>
+</main>
+<footer><div class="foot"><span>© <span id="year"></span> Sir John GH</span><span>Contact: 0547720878 · Ghana</span><span>Built for mobile customers</span></div></footer>
+<script>
+const bundles=[
+ {size:"1GB",price:4.50},{size:"2GB",price:8.60},{size:"3GB",price:12.90},
+ {size:"4GB",price:17.20},{size:"5GB",price:21.50},{size:"10GB",price:43.00},
+ {size:"20GB",price:86.00}
+];
+let selected=0;
+const grid=document.getElementById('bundles');
+function render(){
+ grid.innerHTML='';
+ bundles.forEach((b,i)=>{
+  const button=document.createElement('button');
+  button.type='button';button.className='bundle'+(i===selected?' active':'');
+  button.innerHTML=`<strong>${b.size}</strong><span>GH₵${b.price.toFixed(2)}</span>`;
+  button.addEventListener('click',()=>{selected=i;render();updateSummary()});
+  grid.appendChild(button);
+ });
+ updateSummary();
+}
+function updateSummary(){
+ const b=bundles[selected];
+ document.getElementById('sumNetwork').textContent=document.getElementById('network').value;
+ document.getElementById('sumBundle').textContent=b.size;
+ document.getElementById('sumPrice').textContent='GH₵'+b.price.toFixed(2);
+}
+document.getElementById('network').addEventListener('change',updateSummary);
+document.getElementById('order').addEventListener('click',()=>{
+ const recipient=document.getElementById('recipient').value.trim();
+ const toast=document.getElementById('toast');
+ if(!recipient){toast.style.display='block';toast.textContent='Please enter the phone number that should receive the data.';return;}
+ if(!/^[0-9+\s-]{9,15}$/.test(recipient)){toast.style.display='block';toast.textContent='Please check the phone number and try again.';return;}
+ const b=bundles[selected],network=document.getElementById('network').value,payment=document.getElementById('payment').value;
+ const message=`Hello Sir John GH, I want to order ${b.size} ${network} data for ${recipient}. Price: GH₵${b.price.toFixed(2)}. Payment preference: ${payment}.`;
+ window.open('https://wa.me/233547720878?text='+encodeURIComponent(message),'_blank','noopener');
+ toast.style.display='block';toast.textContent='WhatsApp will open with your order details. No payment has been taken.';
+});
+document.getElementById('year').textContent=new Date().getFullYear();
+render();
+</script>
+</body></html>
